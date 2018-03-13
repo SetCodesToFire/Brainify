@@ -10,8 +10,9 @@ from tensorflow.python.framework import ops
 
 IMG_PX_SIZE = 80
 
-data_dir = 'C:/users/setcodestofire/documents/mygithub/brain/Image'
-dataset  = os.listdir(data_dir)
+cwd = os.getcwd()
+data_dir = '\\examples'
+dataset  = os.listdir(cwd+data_dir)
 
 for data in dataset:
     ops.reset_default_graph()
@@ -24,7 +25,7 @@ for data in dataset:
 
     def process_data(data):
 
-        path = data_dir +'/'+ str(data)
+        path = cwd+'/'+ data_dir +'/'+ str(data)
         img3d = nib.load(path)
         a = np.array(img3d.get_data())
 
